@@ -2,6 +2,8 @@
 
 PWA (aplicación web instalable) para relevar recetas y procedimientos de elaboración desde el celular. Funciona sin internet y guarda todo en el propio teléfono (IndexedDB).
 
+**App publicada:** <https://leandroiarrar14-cyber.github.io/recetario-manolo/>
+
 ## Archivos
 
 | Archivo | Qué es |
