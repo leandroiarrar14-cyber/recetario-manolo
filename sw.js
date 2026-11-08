@@ -2,7 +2,7 @@
    Guarda todos los archivos de la app en caché para que funcione sin internet.
    CADA VEZ QUE CAMBIES index.html (u otro archivo), subí el número de CACHE
    (por ejemplo 'recetario-v2') para que los celulares bajen la versión nueva. */
-const CACHE = 'recetario-v4';
+const CACHE = 'recetario-v5';
 const ARCHIVOS = [
   './',
   './index.html',
@@ -17,8 +17,10 @@ const ARCHIVOS = [
 ];
 
 // Instalación: descarga y guarda todo. No se activa sola: la app pregunta "Actualizar".
+// cache: 'reload' obliga a bajar los archivos del servidor y no de la caché del
+// navegador (GitHub Pages la deja 10 minutos), así no se guarda una versión vieja.
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS)));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS.map(u => new Request(u, { cache: 'reload' })))));
 });
 
 // Activación: borra cachés de versiones anteriores.
