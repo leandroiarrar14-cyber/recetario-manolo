@@ -1897,9 +1897,12 @@ function registrarServiceWorker() {
       w.addEventListener('statechange', () => { if (w.state === 'installed' && navigator.serviceWorker.controller) avisar(w); });
     });
   }).catch(e => console.warn('SW no registrado', e));
+  // Recargar solo si es una ACTUALIZACIÓN (ya había un service worker controlando).
+  // En la primera visita el SW toma el control y no hace falta recargar.
+  const habiaControlador = !!navigator.serviceWorker.controller;
   let recargando = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (recargando) return; recargando = true;
+    if (!habiaControlador || recargando) return; recargando = true;
     Autoguardado.flush().then(() => location.reload());
   });
 }

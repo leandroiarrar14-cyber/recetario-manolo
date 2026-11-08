@@ -2,7 +2,7 @@
    Guarda todos los archivos de la app en caché para que funcione sin internet.
    CADA VEZ QUE CAMBIES index.html (u otro archivo), subí el número de CACHE
    (por ejemplo 'recetario-v2') para que los celulares bajen la versión nueva. */
-const CACHE = 'recetario-v3';
+const CACHE = 'recetario-v4';
 const ARCHIVOS = [
   './',
   './index.html',
