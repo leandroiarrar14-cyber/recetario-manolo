@@ -50,6 +50,17 @@ Instalala siempre: así el sistema no borra los datos por falta de uso (en iPhon
 ## Revisarla con Lighthouse
 En la compu, Chrome → abrí la dirección publicada → F12 → pestaña **Lighthouse** → modo *Navigation*, dispositivo *Mobile* → **Analyze page load**. Mirá *Performance*, *Accessibility*, *Best Practices* y *SEO*. La parte "instalable" se ve en F12 → **Application → Manifest** (que no tenga errores) y **Service workers** (que figure *activated*).
 
+## Modo operario y supervisor
+Sirve para dejar la app en un celular o tablet de la planta sin que se modifiquen las recetas.
+
+- **Activarlo:** Menú → Ajustes → **Crear contraseña de supervisor**. Hasta que no crees una, la app funciona como siempre (todo habilitado).
+- **Operario:** puede buscar, ver, escalar, usar el modo cocina, imprimir y exportar. No puede crear, editar, duplicar ni borrar recetas, ni tocar sectores, ajustes o restaurar respaldos. Por defecto ve **solo las recetas validadas** (se cambia en Ajustes).
+- **Supervisor:** todo. Se entra tocando el botón **Operario** de la barra superior y escribiendo la contraseña. Para devolverle el dispositivo al operario, tocá **Supervisor**.
+- **Bloqueo automático:** si la app queda 15 minutos sin usar, vuelve sola a modo operario (se puede desactivar en Ajustes).
+- **Para preparar una tablet de planta:** instalá la app, restaurá un respaldo con las recetas, creá la contraseña y pasá a modo operario. Cada dispositivo tiene su propia contraseña.
+- **Si te olvidás la contraseña** no se puede recuperar: hay que borrar los datos de la app en ese dispositivo y restaurar un respaldo.
+- **Límite:** es una traba de uso para evitar cambios accidentales o no autorizados, no seguridad fuerte. Los datos están en el dispositivo y alguien con conocimientos técnicos podría saltearla. La contraseña no se guarda: se guarda un hash (PBKDF2-SHA-256).
+
 ## Cosas para saber
 - **Dictado por voz:** en Android Chrome y en Safari el reconocimiento de voz del navegador **usa internet**. Sin señal, usá el micrófono del teclado (Gboard o el teclado del iPhone), que suele funcionar offline si tenés descargado el idioma español.
 - **Respaldos:** los datos viven solo en ese celular. Respaldá seguido: el botón 💾 genera un archivo con todo (incluidas las fotos) y abre el menú de compartir (Drive, WhatsApp, mail). Chrome en Android no deja compartir archivos `.json` ni `.zip`: el JSON se comparte como `.json.txt` (se restaura igual) y el ZIP se descarga a la carpeta Descargas.
